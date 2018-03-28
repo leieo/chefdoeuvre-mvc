@@ -2,6 +2,6 @@
 
 require '../models/user.php';
 
-$alert = register();
+list ($alert, $name, $mail, $mail2) = register();
 
 require '../views/register-view.php';

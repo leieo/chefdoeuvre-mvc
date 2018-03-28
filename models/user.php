@@ -42,7 +42,6 @@ function register() {
 										));
 										//
 										$alert = "Welcome ! <br/><br/> You can log in <a href=\"./login.php\">here</a>";
-										return $alert;
 
 										// OU
 										// header('Location : index.php');
@@ -50,37 +49,105 @@ function register() {
 
 									} else {
 										$alert = "... les mots de passe doivent être identiques ...";
-										return $alert;
-
 									}
 								} else {
 									$alert = "... les adresses mail doivent être identiques ...";
-									return $alert;
 								}
 							} else {
 								$alert = "... mail already exists ...";
-								return $alert;
 							}
 						} else {
 							$alert = "... merci d'indiquer une adresse mail  valide ...";
-							return $alert;
 						}
 					} else {
 						$alert = "... le mail est trop long ...";
-						return $alert;
 					}
 				} else {
 					$alert = "... name already exists";
-					return $alert;
 				}
 			} else {
 				$alert = "... le nom est trop long ...";
-				return $alert;
 			}
 		} else {
 			$alert = "All fields are required ...";
-			return $alert;
 		}
+		return array ($alert, $name, $mail, $mail2);
 	}
+}
+
+
+function login() {
+
+	require '../database.php';
+
+	if (isset($_POST['loginform'])) 
+	{
+		$loginmail = htmlspecialchars($_POST['loginmail']);
+		$loginpassword = sha1($_POST['loginpassword']);
+		if (!empty($_POST['loginmail']) AND !empty($_POST['loginpassword'])) 
+		{
+			if (filter_var($loginmail, FILTER_VALIDATE_EMAIL)) 
+			{
+				$userquery = $database->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+				$userquery->execute(array($loginmail, $loginpassword));
+				$userexists = $userquery->rowCount();
+				if ($userexists == 1) 
+				{
+
+					$userinfo = $userquery->fetch();
+					$_SESSION['id'] = $userinfo['id'];
+					$_SESSION['name'] = $userinfo['name'];
+					$_SESSION['email'] = $userinfo['email']; 
+					header("Location: session.php?id=".$_SESSION['id']);
+
+				} else {
+					$alert = "... le mail et le mot de passe ne correspondent pas ...";
+				}
+
+			} else {
+				$alert = "... merci d'indiquer une adresse mail valide ...";
+			}
+
+		} else {
+			$alert = "... merci de remplir tous les champs ...";
+		}
+
+		return array ($alert, $loginmail);
+	}
+}
+
+function session() {
+
+	require '../database.php';
+
+	if (isset($_GET['id']) AND $_GET['id'] > 0) {
+		$getid = intval($_GET['id']);
+		$userquery = $database->prepare('SELECT * FROM user WHERE id = ?');
+		$userquery->execute(array($getid));
+		$userinfo = $userquery->fetch();
+		return $userinfo;
+	} else { 
+		header("Location: error.php");
+	}
+}
+
+/*
+function unlockSession() {
+
+	require '../database.php';
+
+	if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
+		return 'true';
+	} else { 
+		header("Location: error.php");
+	}
+}
+*/
+
+function logout() {
+	session_start();
+	$_SESSION = array();
+	session_destroy();
+	header("Location: login.php");
 }
 
