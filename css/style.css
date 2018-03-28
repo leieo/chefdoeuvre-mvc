@@ -1,0 +1,70 @@
+/* <link href="https://fonts.googleapis.com/css?family=Cutive+Mono&amp;subset=latin-ext" rel="stylesheet">*/
+
+* {
+	padding: 4px;
+}
+
+a {
+	color: black;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+body {
+	font-family:  'Cutive Mono', monospace;
+	font-size: 18px;
+}
+
+h1 {
+	font-size: 55px;
+	letter-spacing: 3px;
+}
+
+h2 {
+	font-size: 28px;
+	letter-spacing: 5px;
+}
+
+h3, h4 {
+	text-transform: uppercase;
+	letter-spacing: 8px;
+}
+
+h4 {
+	text-transform: uppercase;
+	font-size: 20px;
+	letter-spacing: 6px;
+}
+
+h5, h6 {
+	text-transform: uppercase;
+	font-size: 16px;
+	letter-spacing: 5px;
+}
+
+h6 {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.alert {
+	font-size: 0.85rem;
+	color: darkred;
+}
+
+.home {
+	text-align: center;
+	padding-top: 30vh;
+}
+
+.home h1 {
+	padding: 0px;
+	margin: 0px;
+}
+
+#form {
+	padding-top: 20px;
+}
