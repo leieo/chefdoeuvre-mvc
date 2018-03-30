@@ -99,6 +99,7 @@ function login() {
 					$_SESSION['name'] = $userinfo['name'];
 					$_SESSION['email'] = $userinfo['email']; 
 					header("Location: session.php?id=".$_SESSION['id']);
+					return $userinfo;
 
 				} else {
 					$alert = "... le mail et le mot de passe ne correspondent pas ...";
@@ -127,7 +128,9 @@ function session() {
 		$userinfo = $userquery->fetch();
 		return $userinfo;
 	} else { 
-		header("Location: error.php");
+		/*
+		header("Location: error.php"); */
+		echo 'test';
 	}
 }
 

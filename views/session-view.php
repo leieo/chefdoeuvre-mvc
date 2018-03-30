@@ -16,7 +16,11 @@
 				<p>Bienvenue</p>
 			</section>
 			<section class="features">
-				<h3><span class="feature"><a href="">+</a></span>
+				<h3><span class="feature">
+					<a href="newproject.php">
+						+
+					</a>
+				</span>
 				<div class="feature">Create a new project</div></h3>
 			</section>
 		</main>
