@@ -1,6 +1,6 @@
 <?php
 
-require './views/index-view.php';
+require __DIR__.'/views/index-view.php';
 
 
 // ommission volontaire de la balise fermante :

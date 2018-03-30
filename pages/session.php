@@ -1,7 +1,7 @@
 <?php
 
-require '../models/user.php';
+require __DIR__.'/../models/user.php';
 
 $userinfo = session();
 
-require '../views/session-view.php';
+require __DIR__.'/../views/session-view.php';

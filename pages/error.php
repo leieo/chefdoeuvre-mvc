@@ -1,3 +1,3 @@
 <?php
 
-require '../views/error-view.php';
+require __DIR__.'/../views/error-view.php';

@@ -10,31 +10,15 @@
 		<header align="right">
 			<a href="">My account</a>  |  <a href="./logout.php">Log out</a>
 		</header>
-		<div align="center">
-			<table>
-				<tr>
-					<td></td>
-					<td align="left">
-						<h2>Welcome <?php echo $userinfo['name']; ?> ! </h2>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						Pseudo > 
-					</td>
-					<td>
-						<?php echo $userinfo['name']; ?>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						Mail > 
-					</td>
-					<td>
-						<?php echo $userinfo['email']; ?>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<main>
+			<h2>Hello <?php echo $userinfo['name']; ?> !</h2>
+			<section class="display">
+				<p>Bienvenue</p>
+			</section>
+			<section class="features">
+				<h3><span class="feature"><a href="">+</a></span>
+				<div class="feature">Create a new project</div></h3>
+			</section>
+		</main>
 	</body>
 </html>

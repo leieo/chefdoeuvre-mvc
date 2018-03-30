@@ -1,7 +1,7 @@
 <?php
 
-require '../models/user.php';
+require __DIR__.'/../models/user.php';
 
 list ($alert, $loginmail) = login();
 
-require '../views/login-view.php';
+require __DIR__.'/../views/login-view.php';

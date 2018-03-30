@@ -1,5 +1,5 @@
 <?php
 
-require '../models/user.php';
+require __DIR__.'/../models/user.php';
 
 logout();

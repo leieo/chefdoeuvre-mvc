@@ -2,7 +2,7 @@
 
 function register() {
 
-	require '../database.php';
+	require __DIR__.'/../database.php';
 
 	if (isset($_POST['registerform'])) {
 		$name = htmlspecialchars($_POST['name']);
@@ -78,7 +78,7 @@ function register() {
 
 function login() {
 
-	require '../database.php';
+	require __DIR__.'/../database.php';
 
 	if (isset($_POST['loginform'])) 
 	{
@@ -118,7 +118,7 @@ function login() {
 
 function session() {
 
-	require '../database.php';
+	require __DIR__.'/../database.php';
 
 	if (isset($_GET['id']) AND $_GET['id'] > 0) {
 		$getid = intval($_GET['id']);

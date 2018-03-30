@@ -1,6 +1,6 @@
 <?php
 
-require '../config.php';
+require __DIR__.'/config.php';
 
 // connexion à la base de donnée et message d'erreur :
 try {
