@@ -28,9 +28,10 @@ h2 {
 	letter-spacing: 5px;
 }
 
-h3, h4 {
-	text-transform: uppercase;
-	letter-spacing: 8px;
+h3 {
+	font-size: 35px;
+	letter-spacing: 3px;
+	line-height: 0px;
 }
 
 h4 {
@@ -53,6 +54,32 @@ h6 {
 .alert {
 	font-size: 0.85rem;
 	color: darkred;
+}
+
+.display, .features {
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.feature a {
+	font-size: 55px;
+	text-decoration: none;
+	border: solid 1px black;
+	padding: 3px 15px;
+}
+
+.feature a:hover {
+	border: solid 3px black;
+}
+
+.features div {
+	padding-top: 70px;
+	font-size: 18px;
+	display: none;
+}
+
+span:hover + div {
+	display: block;
 }
 
 .home {
