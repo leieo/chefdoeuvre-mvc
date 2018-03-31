@@ -37,13 +37,11 @@
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-									<br />
-									<label for="newproject">Create > </label>
+								<td>
 								</td>
 								<td>
 									<br/>
-									<input type="submit" id="newproject" name="newproject" value=" + "/>
+									<input type="submit" id="newproject" name="newproject" value=" Create "/>
 								</td>
 							</tr>
 						</table>
