@@ -12,7 +12,7 @@ function getInfos() {
 
 if (isset($_POST['newproject'])) {
 	list ($user_id, $title) = getInfos();
-	createProject($user_id, $title);
+	Project::create($user_id, $title);
 }
 
 require __DIR__.'/../views/newproject-view.php';
