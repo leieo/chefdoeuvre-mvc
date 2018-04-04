@@ -24,7 +24,7 @@
 						<label for="name">Name > </label>
 					</td>
 					<td>
-						<input type="text" id="name" name="name" placeholder="Choose a name" value="<?php if (isset($name)) { echo $name; } ?>"/>
+						<input type="text" id="name" name="name" placeholder="Choose a name" value="<?php echo ($name ?? ''); ?>"/>
 					</td>
 				</tr>
 				<tr>
@@ -70,10 +70,8 @@
 		</form>  
 		<br/>    
 		<?php
-		if (isset($alert)) {
-			echo '<strong class="alert">'.$alert.'</strong>';
-		}
-		?>    
+		echo isset($alert) ? ('<strong class="alert">'.$alert.'</strong>') : '';
+		?>
 	</div>
 </body>
 </html>

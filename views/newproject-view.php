@@ -27,6 +27,7 @@
 									<input type="text" id="title" name="title" placeholder="Name your new project" value=""/>
 								</td>
 							</tr>
+						<!-- DESCRIPTION
 							<tr>
 								<td align="right">
 									<label for="description">Description > </label>
@@ -36,6 +37,7 @@
 									<textarea id="description" name="description" rows="8" cols="35" placeholder="Briefly describe your project..."></textarea>
 								</td>
 							</tr>
+						-->
 							<tr>
 								<td>
 								</td>
