@@ -32,7 +32,7 @@
 						<label for="mail">Mail > </label>
 					</td>
 					<td>
-						<input type="email" id="mail" name="mail" placeholder="Your e-mail" value="<?php if (isset($mail)) { echo $mail; } ?>"/>
+						<input type="email" id="mail" name="mail" placeholder="Your e-mail" value="<?php echo ($mail ?? ''); ?>"/>
 					</td>
 				</tr>
 				<tr>
@@ -40,7 +40,7 @@
 						<label for="mail2"> > </label>
 					</td>
 					<td>
-						<input type="email" id="mail2" name="mail2" placeholder="Confirm your e-mail" value="<?php if (isset($mail2)) { echo $mail2; } ?>"/>
+						<input type="email" id="mail2" name="mail2" placeholder="Confirm your e-mail" value="<?php echo ($mail2 ?? ''); ?>"/>
 					</td>
 				</tr>
 				<tr>
