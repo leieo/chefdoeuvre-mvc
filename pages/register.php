@@ -29,7 +29,7 @@ if (isset($_POST['registerform'])) {
 	} else {
 
 		list ($name, $mail, $mail2, $password, $password2) = getUserInfos();
-		list ($alert, $name, $mail, $mail2) = register($name, $mail, $mail2, $password, $password2);
+		list ($alert, $name, $mail, $mail2) = User::register($name, $mail, $mail2, $password, $password2);
 
 	}
 }

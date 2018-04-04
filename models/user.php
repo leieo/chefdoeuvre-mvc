@@ -1,64 +1,67 @@
 <?php
 
-function register($name, $mail, $mail2, $password, $password2) {
+class User {
 
-	require __DIR__.'/../database.php';
+	function register($name, $mail, $mail2, $password, $password2) {
 
-	$namelength = strlen($name);
-	if ($namelength > 255) {	
-		$alert = "... le nom est trop long ...";
+		require __DIR__.'/../database.php';
+
+		$namelength = strlen($name);
+		if ($namelength > 255) {	
+			$alert = "... le nom est trop long ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		$namequery = $database->prepare('SELECT * FROM user WHERE name = :name');
+		$namequery->execute(array('name' => $name));
+		$nameexists = $namequery->rowCount();
+		if ($nameexists != 0) {
+			$alert = "... name already exists";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		$maillength = strlen($mail);
+		if ($maillength > 255) {
+			$alert = "... le mail est trop long ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		if (filter_var($mail, FILTER_VALIDATE_EMAIL) == false) {
+			$alert = "... merci d'indiquer une adresse mail  valide ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		$mailquery = $database->prepare('SELECT * FROM user WHERE email = :email');
+		$mailquery->execute(array('email' => $mail));
+		$mailexists = $mailquery->rowCount();
+		if ($mailexists != 0) {
+			$alert = "... mail already exists ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		if ($mail != $mail2) {
+			$alert = "... les adresses mail doivent être identiques ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		if ($password != $password2) {
+			$alert = "... les mots de passe doivent être identiques ...";
+			return array ($alert, $name, $mail, $mail2);
+		}
+
+		$insertuser = $database->prepare("INSERT INTO user(name, email, password) VALUES (:name, :email, :password)");
+		$insertuser->execute(array(
+			'name' => $name,
+			'email' => $mail,
+			'password' => $password
+		));
+		//
+		$alert = "Welcome ! <br/><br/> You can log in <a href=\"./login.php\">here</a>";
+		// OU
+		// header('Location : index.php');
+		// $_SESSION['registered'] = "... compte créé ..."
 		return array ($alert, $name, $mail, $mail2);
 	}
-
-	$namequery = $database->prepare('SELECT * FROM user WHERE name = :name');
-	$namequery->execute(array('name' => $name));
-	$nameexists = $namequery->rowCount();
-	if ($nameexists != 0) {
-		$alert = "... name already exists";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	$maillength = strlen($mail);
-	if ($maillength > 255) {
-		$alert = "... le mail est trop long ...";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	if (filter_var($mail, FILTER_VALIDATE_EMAIL) == false) {
-		$alert = "... merci d'indiquer une adresse mail  valide ...";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	$mailquery = $database->prepare('SELECT * FROM user WHERE email = :email');
-	$mailquery->execute(array('email' => $mail));
-	$mailexists = $mailquery->rowCount();
-	if ($mailexists != 0) {
-		$alert = "... mail already exists ...";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	if ($mail != $mail2) {
-		$alert = "... les adresses mail doivent être identiques ...";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	if ($password != $password2) {
-		$alert = "... les mots de passe doivent être identiques ...";
-		return array ($alert, $name, $mail, $mail2);
-	}
-
-	$insertuser = $database->prepare("INSERT INTO user(name, email, password) VALUES (:name, :email, :password)");
-	$insertuser->execute(array(
-		'name' => $name,
-		'email' => $mail,
-		'password' => $password
-	));
-	//
-	$alert = "Welcome ! <br/><br/> You can log in <a href=\"./login.php\">here</a>";
-	// OU
-	// header('Location : index.php');
-	// $_SESSION['registered'] = "... compte créé ..."
-	return array ($alert, $name, $mail, $mail2);
 }
 
 
