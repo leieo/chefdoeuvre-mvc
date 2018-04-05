@@ -84,10 +84,10 @@ function login($loginmail, $loginpassword) {
 	{
 		$alert = "... le mail et le mot de passe ne correspondent pas ...";
 		return array ($alert, NULL);
-	}
+	} else {
 	$userinfo = $userquery->fetch();
 	return array (NULL, $userinfo);
-
+	}
 	//$_SESSION['id'] = $userinfo['id']; 
 
 	/*

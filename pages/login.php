@@ -14,13 +14,13 @@ if (isset($_POST['loginform'])) {
 		/*$loginmail = $_POST['loginmail'];*/
 	} else {
 
-		list ($alert, $userinfo) = login($loginmail, $loginpassword);
+	list ($alert, $userinfo) = login($loginmail, $loginpassword);
 
-		if (!isset($alert)) {
-		$_SESSION['id'] = $userinfo['id']; 
-		header("Location: session.php?id=".$_SESSION['id']);
-		}
+	if (!isset($alert)) {
+	$_SESSION['id'] = $userinfo['id']; 
+	header("Location: session.php?id=".$_SESSION['id']);
 	}
+}
 
 }
 
