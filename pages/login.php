@@ -18,6 +18,8 @@ if (isset($_POST['loginform'])) {
 
 	if (!isset($alert)) {
 		$_SESSION['id'] = $userinfo['id']; 
+		$_SESSION['name'] = $userinfo['name']; 
+		$_SESSION['mail'] = $userinfo['email']; 
 		header("Location: session.php?id=".$_SESSION['id']);
 		}
 	}
