@@ -1,6 +1,5 @@
 <?php
 session_start();
-
-require __DIR__.'/../models/user.php';
-
-logout();
+$_SESSION = array();
+session_destroy();
+header("Location: login.php");

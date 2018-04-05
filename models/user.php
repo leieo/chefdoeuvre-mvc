@@ -88,43 +88,24 @@ class User {
 		return array (NULL, $userinfo);
 		}
 	}
-}
 
 
-function session() {
+	function session($userid) {
 
-	require __DIR__.'/../database.php';
+		require __DIR__.'/../database.php';
 
-	if (isset($_GET['id']) AND $_GET['id'] > 0) {
-		$getid = intval($_GET['id']);
 		$userquery = $database->prepare('SELECT * FROM user WHERE id = ?');
-		$userquery->execute(array($getid));
+		$userquery->execute(array($userid));
 		$userinfo = $userquery->fetch();
 		return $userinfo;
-	} else { 
-		/*
-		header("Location: error.php"); */
-		echo 'test';
 	}
 }
 
 /*
-function unlockSession() {
-
-	require '../database.php';
-
-	if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
-		return 'true';
-	} else { 
-		header("Location: error.php");
-	}
-}
-*/
-
 function logout() {
 	session_start();
 	$_SESSION = array();
 	session_destroy();
 	header("Location: login.php");
 }
-
+*/
