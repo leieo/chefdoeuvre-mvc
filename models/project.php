@@ -3,7 +3,7 @@
 class Project {
 	public static function create($user_id, $title) {
 
-		require __DIR__.'/../database.php';
+		require __DIR__.'/database.php';
 
 		$creator = $database->prepare('INSERT INTO project(user_id, title) VALUES (:user_id, :title)');
 

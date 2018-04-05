@@ -4,7 +4,7 @@ class User {
 
 	function register($name, $mail, $mail2, $password, $password2) {
 
-		require __DIR__.'/../database.php';
+		require __DIR__.'/database.php';
 
 		$namelength = strlen($name);
 		if ($namelength > 255) {	
@@ -65,7 +65,7 @@ class User {
 
 	function login($loginmail, $loginpassword) {
 
-		require __DIR__.'/../database.php';
+		require __DIR__.'/database.php';
 
 		$loginmail = htmlspecialchars($_POST['loginmail']);
 		$loginpassword = sha1($_POST['loginpassword']);
@@ -92,7 +92,7 @@ class User {
 
 	function session($userid) {
 
-		require __DIR__.'/../database.php';
+		require __DIR__.'/database.php';
 
 		$userquery = $database->prepare('SELECT * FROM user WHERE id = ?');
 		$userquery->execute(array($userid));
@@ -100,12 +100,3 @@ class User {
 		return $userinfo;
 	}
 }
-
-/*
-function logout() {
-	session_start();
-	$_SESSION = array();
-	session_destroy();
-	header("Location: login.php");
-}
-*/
