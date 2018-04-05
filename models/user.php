@@ -64,46 +64,40 @@ class User {
 	}
 }
 
-
-function login() {
+function login($loginmail, $loginpassword) {
 
 	require __DIR__.'/../database.php';
 
-	if (isset($_POST['loginform'])) 
+	$loginmail = htmlspecialchars($_POST['loginmail']);
+	$loginpassword = sha1($_POST['loginpassword']);
+
+	if (filter_var($loginmail, FILTER_VALIDATE_EMAIL) == false) 
 	{
-		$loginmail = htmlspecialchars($_POST['loginmail']);
-		$loginpassword = sha1($_POST['loginpassword']);
-		if (!empty($_POST['loginmail']) AND !empty($_POST['loginpassword'])) 
-		{
-			if (filter_var($loginmail, FILTER_VALIDATE_EMAIL)) 
-			{
-				$userquery = $database->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
-				$userquery->execute(array($loginmail, $loginpassword));
-				$userexists = $userquery->rowCount();
-				if ($userexists == 1) 
-				{
-
-					$userinfo = $userquery->fetch();
-					$_SESSION['id'] = $userinfo['id'];
-					$_SESSION['name'] = $userinfo['name'];
-					$_SESSION['email'] = $userinfo['email']; 
-					header("Location: session.php?id=".$_SESSION['id']);
-					return $userinfo;
-
-				} else {
-					$alert = "... le mail et le mot de passe ne correspondent pas ...";
-				}
-
-			} else {
-				$alert = "... merci d'indiquer une adresse mail valide ...";
-			}
-
-		} else {
-			$alert = "... merci de remplir tous les champs ...";
-		}
-
-		return array ($alert, $loginmail);
+		$alert = "... merci d'indiquer une adresse mail valide ...";
+		return array ($alert, NULL);
 	}
+
+	$userquery = $database->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+	$userquery->execute(array($loginmail, $loginpassword));
+	$userexists = $userquery->rowCount();
+	if ($userexists == 0) 
+	{
+		$alert = "... le mail et le mot de passe ne correspondent pas ...";
+		return array ($alert, NULL);
+	}
+	$userinfo = $userquery->fetch();
+	return array (NULL, $userinfo);
+
+	//$_SESSION['id'] = $userinfo['id']; 
+
+	/*
+	$_SESSION['name'] = $userinfo['name'];
+	$_SESSION['email'] = $userinfo['email']; 
+	*/
+	//header("Location: session.php?id=".$_SESSION['id']);
+	/*
+	return array ($alert, $loginmail);
+	*/
 }
 
 function session() {
