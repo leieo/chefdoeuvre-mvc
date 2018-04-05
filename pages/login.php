@@ -14,14 +14,13 @@ if (isset($_POST['loginform'])) {
 		/*$loginmail = $_POST['loginmail'];*/
 	} else {
 
-	list ($alert, $userinfo) = login($loginmail, $loginpassword);
+	list ($alert, $userinfo) = User::login($loginmail, $loginpassword);
 
 	if (!isset($alert)) {
-	$_SESSION['id'] = $userinfo['id']; 
-	header("Location: session.php?id=".$_SESSION['id']);
+		$_SESSION['id'] = $userinfo['id']; 
+		header("Location: session.php?id=".$_SESSION['id']);
+		}
 	}
-}
-
 }
 
 require __DIR__.'/../views/login-view.php';

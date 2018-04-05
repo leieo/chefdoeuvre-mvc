@@ -62,43 +62,34 @@ class User {
 		// $_SESSION['registered'] = "... compte créé ..."
 		return array ($alert, $name, $mail, $mail2);
 	}
+
+	function login($loginmail, $loginpassword) {
+
+		require __DIR__.'/../database.php';
+
+		$loginmail = htmlspecialchars($_POST['loginmail']);
+		$loginpassword = sha1($_POST['loginpassword']);
+
+		if (filter_var($loginmail, FILTER_VALIDATE_EMAIL) == false) 
+		{
+			$alert = "... merci d'indiquer une adresse mail valide ...";
+			return array ($alert, NULL);
+		}
+
+		$userquery = $database->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+		$userquery->execute(array($loginmail, $loginpassword));
+		$userexists = $userquery->rowCount();
+		if ($userexists == 0) 
+		{
+			$alert = "... le mail et le mot de passe ne correspondent pas ...";
+			return array ($alert, NULL);
+		} else {
+		$userinfo = $userquery->fetch();
+		return array (NULL, $userinfo);
+		}
+	}
 }
 
-function login($loginmail, $loginpassword) {
-
-	require __DIR__.'/../database.php';
-
-	$loginmail = htmlspecialchars($_POST['loginmail']);
-	$loginpassword = sha1($_POST['loginpassword']);
-
-	if (filter_var($loginmail, FILTER_VALIDATE_EMAIL) == false) 
-	{
-		$alert = "... merci d'indiquer une adresse mail valide ...";
-		return array ($alert, NULL);
-	}
-
-	$userquery = $database->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
-	$userquery->execute(array($loginmail, $loginpassword));
-	$userexists = $userquery->rowCount();
-	if ($userexists == 0) 
-	{
-		$alert = "... le mail et le mot de passe ne correspondent pas ...";
-		return array ($alert, NULL);
-	} else {
-	$userinfo = $userquery->fetch();
-	return array (NULL, $userinfo);
-	}
-	//$_SESSION['id'] = $userinfo['id']; 
-
-	/*
-	$_SESSION['name'] = $userinfo['name'];
-	$_SESSION['email'] = $userinfo['email']; 
-	*/
-	//header("Location: session.php?id=".$_SESSION['id']);
-	/*
-	return array ($alert, $loginmail);
-	*/
-}
 
 function session() {
 
