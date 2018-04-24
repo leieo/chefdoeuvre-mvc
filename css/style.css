@@ -88,13 +88,13 @@ span:hover + div {
 
 
 
-/* ALIGNEMENT */
+/* ALIGN MODIFIERS */
 
-.center {
+.--center {
 	text-align: center;
 }
 
-.right {
+.--right {
 	text-align: right;
 }
 
@@ -114,8 +114,66 @@ span:hover + div {
 
 
 
-/* --- */
+/* FORM */
 
+/*
 #form {
 	padding-top: 20px;
+*/
+
+.form {
+    padding-left: 0;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 100px repeat(auto-fill);
+}
+
+
+.form__title {
+	text-align: center;
+	grid-column: span 5;
+}
+
+.form_label {
+	text-align: right;
+	grid-column: span 2;
+}
+
+.form__field {
+	padding-bottom: 5px;
+	text-align: center;
+	grid-column: span 1;
+}
+
+.form__alert {
+	text-align: center;
+	font-size: 0.85rem;
+	color: darkred;
+	grid-column: span 5;
+}
+
+
+@media screen and (max-width: 480px) {
+
+	.form__title {
+		text-align: left;
+	}
+
+	.form_label {
+		text-align: left;
+		grid-column: span 5;
+	}
+
+	.form__field {
+		padding-bottom: 5px;
+		text-align: left;
+		grid-column: span 5;
+	}
+
+	.form__alert {
+		text-align: left;
+		grid-row: 2;
+	}
+
 }
