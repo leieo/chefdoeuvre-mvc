@@ -42,49 +42,6 @@
 		</div>
 
 	</form>  
-		
-<!--
-	<div align="center">
-		<form method="POST" action="">
-			<table>
-				<tr>
-					<td></td>
-					<td align="center">
-						<h2>Log in</h2>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label for="loginmail">Mail > </label>
-					</td>
-					<td>
-						<input type="email" id="loginmail" name="loginmail" placeholder="Enter e-mail" value="<?php if (isset($loginmail)) { echo $loginmail; } ?>"/>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label for="loginpassword">Password > </label>
-					</td>
-					<td>
-						<input type="password" id="loginpassword" name="loginpassword" placeholder="Enter password"/>
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td align="center">
-						<br/>
-						<input type="submit" name="loginform" value="Login"/>
-					</td>
-				</tr>
-			</table>
-		</form>  
-		<br/>    
-		<?php
-		// if (isset(blablabla)) etc.
-		?>
-	</div>
--->
-		<br/>    
-		
+	
 </body>
 </html>

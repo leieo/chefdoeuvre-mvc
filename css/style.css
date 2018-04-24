@@ -141,7 +141,7 @@ span:hover + div {
 }
 
 .form__field {
-	padding-bottom: 5px;
+	padding-bottom: 8px;
 	text-align: center;
 	grid-column: span 1;
 }
@@ -153,20 +153,21 @@ span:hover + div {
 	grid-column: span 5;
 }
 
-
 @media screen and (max-width: 480px) {
 
 	.form__title {
+		font-size: 35px;
 		text-align: left;
+		padding-left: 10px;
 	}
 
 	.form_label {
+		padding-left: 12px;
 		text-align: left;
 		grid-column: span 5;
 	}
 
 	.form__field {
-		padding-bottom: 5px;
 		text-align: left;
 		grid-column: span 5;
 	}
@@ -174,6 +175,10 @@ span:hover + div {
 	.form__alert {
 		text-align: left;
 		grid-row: 2;
+	}
+
+	.form--hidden {
+		display: none;
 	}
 
 }
