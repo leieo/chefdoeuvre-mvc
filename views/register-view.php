@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Cutive+Mono&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
-	<header align="right">
+	<header class="right"><!-- alignement css -->
 		Log in <a href="./login.php">here</a>
 	</header>
 	<div align="center">
