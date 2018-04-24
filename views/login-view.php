@@ -6,7 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Cutive+Mono&amp;subset=latin-ext" rel="stylesheet">
 </head>
+
 <body>
+
 	<header class="--right"><!-- alignement css -->
 		Register <a href="./register.php">here</a>
 	</header>

@@ -7,7 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Cutive+Mono&amp;subset=latin-ext" rel="stylesheet">
 	</head>
 	<body>
-		<header align="right">
+		<header class="--right">
 			<a href="">My account</a>  |  <a href="./logout.php">Log out</a>
 		</header>
 		<main>
