@@ -17,37 +17,37 @@
 		
 		<h2 class="form__title">Register</h2>
 		
-		<label class="form_label" for="name">Name > </label>
+		<label class="form__label" for="name">Name > </label>
 		<div class="form__field">
 			<input type="text" id="name" name="name" placeholder="Choose a name" value="<?php echo ($name ?? ''); ?>"/>
 		</div>
 		<br />
 
-		<label class="form_label" for="mail">Mail > </label>
+		<label class="form__label" for="mail">Mail > </label>
 		<div class="form__field">
 			<input type="email" id="mail" name="mail" placeholder="Your e-mail" value="<?php echo ($mail ?? ''); ?>"/>
 		</div>
 		<br />
 		
-		<label class="form_label form--hidden" for="mail2"> > </label>
+		<label class="form__label form--hidden" for="mail2"> > </label>
 		<div class="form__field">
 			<input type="email" id="mail2" name="mail2" placeholder="Confirm your e-mail" value="<?php echo ($mail2 ?? ''); ?>"/>
 		</div>
 		<br />
 		
-		<label class="form_label" for="password">Password > </label>
+		<label class="form__label" for="password">Password > </label>
 		<div class="form__field">
 			<input type="password" id="password" name="password" placeholder="Your password"/>
 		</div>
 		<br />
 		
-		<label class="form_label form--hidden" for="password2"> > </label>
+		<label class="form__label form--hidden" for="password2"> > </label>
 		<div class="form__field">
 			<input type="password" id="password2" name="password2" placeholder="Confirm your password"/>
 		</div>
 		<br />
 		
-		<div class="form_label"></div>
+		<div class="form__label"></div>
 		<div class="form__field">
 			<input type="submit" name="registerform" value="Register"/>
 		</div>

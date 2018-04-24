@@ -15,19 +15,19 @@
 
 		<h2 class="form__title">Log in</h2>
 
-		<label class="form_label" for="loginmail">Mail > </label>
+		<label class="form__label" for="loginmail">Mail > </label>
 		<div class="form__field">
 			<input type="email" id="loginmail" name="loginmail" placeholder="Enter e-mail" value="<?php if (isset($loginmail)) { echo $loginmail; } ?>"/>
 		</div>
 		<br />
 		
-		<label class="form_label" for="loginpassword">Password > </label>
+		<label class="form__label" for="loginpassword">Password > </label>
 		<div class="form__field">
 			<input type="password" id="loginpassword" name="loginpassword" placeholder="Enter password"/>
 		</div>
 		<br />
 
-		<div class="form_label"></div>
+		<div class="form__label"></div>
 		<div class="form__field">
 			<input type="submit" name="loginform" value="Login"/>
 		</div>

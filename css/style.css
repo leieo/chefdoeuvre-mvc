@@ -135,7 +135,7 @@ span:hover + div {
 	grid-column: span 5;
 }
 
-.form_label {
+.form__label {
 	text-align: right;
 	grid-column: span 2;
 }
@@ -161,7 +161,7 @@ span:hover + div {
 		padding-left: 10px;
 	}
 
-	.form_label {
+	.form__label {
 		padding-left: 12px;
 		text-align: left;
 		grid-column: span 5;
