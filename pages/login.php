@@ -20,7 +20,7 @@ if (isset($_POST['loginform'])) {
 		$_SESSION['id'] = $userinfo['id']; 
 		$_SESSION['name'] = $userinfo['name']; 
 		$_SESSION['mail'] = $userinfo['email']; 
-		header("Location: session.php?id=".$_SESSION['id']);
+		header("Location: session.php");
 		}
 	}
 }

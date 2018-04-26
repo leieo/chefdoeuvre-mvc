@@ -15,6 +15,7 @@
 			<section class="display">
 				<p>Bienvenue</p>
 			</section>
+
 			<section class="features">
 				<h3><span class="feature">
 					<a href="newproject.php">
@@ -23,6 +24,25 @@
 				</span>
 				<div class="feature">Create a new project</div></h3>
 			</section>
+
+<!-- ... À MODIFIER ...
+			<section>
+				<h4>Projets</h4>
+				<ul>
+					<?php 
+					//foreach ($userProjects as $userProject) {
+					?>
+
+					<li>
+						<?php
+						//echo $userProject['id'];
+						?>
+					<?php
+					}
+					?>
+				</ul>
+			</section>
+... À MODIFIER ... -->
 		</main>
 	</body>
 </html>

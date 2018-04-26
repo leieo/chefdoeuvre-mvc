@@ -2,7 +2,9 @@
 
 class User {
 
-	function register($name, $mail, $mail2, $password, $password2) {
+	// DÉCLARATION de la fonction register(), 
+	// avec en PARAMÈTRE des variables dans lesquelles seront stockées les infos du formulaires
+	public static function register($name, $mail, $mail2, $password, $password2) {
 
 		require __DIR__.'/database.php';
 
@@ -63,7 +65,7 @@ class User {
 		return array ($alert, $name, $mail, $mail2);
 	}
 
-	function login($loginmail, $loginpassword) {
+	public static function login($loginmail, $loginpassword) {
 
 		require __DIR__.'/database.php';
 
@@ -90,7 +92,7 @@ class User {
 	}
 
 
-	function session($userid) {
+	public static function session($userid) {
 
 		require __DIR__.'/database.php';
 
